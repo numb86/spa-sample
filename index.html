@@ -1,1 +1,34 @@
-foo
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>SPA Sample</title>
+</head>
+<body>
+  <script>
+    const historyApiFallback = () => {
+      const l = window.location;
+
+      // WARNING
+      // `html-webpack-plugin` throws error when using template literal
+      const baseUrl = '/' + l.pathname.split('/')[1];
+
+      const queryValues = l.search.substring(1).split('=');
+
+      let targetIndex;
+      queryValues.forEach((word, index) => {
+        if (word === 'originalPath') {
+          targetIndex = index + 1;
+        }
+      });
+      if (targetIndex) {
+        const url = baseUrl + queryValues[targetIndex];
+        window.history.replaceState(null, null, url);
+      }
+    };
+
+    historyApiFallback();
+  </script>
+  <div id="app"></div>
+<script type="text/javascript" src="/spa-sample/vendors.23f0d3f680897035cd8b.js"></script><script type="text/javascript" src="/spa-sample/index.8a4f18226863825c72e2.js"></script></body>
+</html>
