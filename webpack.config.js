@@ -65,7 +65,7 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(__dirname, OUTPUT_DIR_NAME),
       filename: isProduction ? '[name].[contentHash].js' : '[name].js',
-      publicPath: './',
+      publicPath: isProduction ? '/spa-sample/' : '/'
     },
     module: {
       rules: [{test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}],
