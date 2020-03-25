@@ -5,6 +5,30 @@
   <title>SPA Sample</title>
 </head>
 <body>
+  <script>
+    const historyApiFallback = () => {
+      const l = window.location;
+
+      // WARNING
+      // `html-webpack-plugin` throws error when using template literal
+      const baseUrl = '/' + l.pathname.split('/')[1];
+
+      const queryValues = l.search.substring(1).split('=');
+
+      let targetIndex;
+      queryValues.forEach((word, index) => {
+        if (word === 'originalPath') {
+          targetIndex = index + 1;
+        }
+      });
+      if (targetIndex) {
+        const url = baseUrl + queryValues[targetIndex];
+        window.history.replaceState(null, null, url);
+      }
+    };
+
+    historyApiFallback();
+  </script>
   <div id="app"></div>
 </body>
 </html>
