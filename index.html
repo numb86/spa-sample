@@ -13,23 +13,14 @@
 <body>
   <script>
     const historyApiFallback = () => {
-      const l = window.location;
+      const url = new URL(window.location);
 
-      // WARNING
-      // `html-webpack-plugin` throws error when using template literal
-      const baseUrl = '/' + l.pathname.split('/')[1];
+      const originalPath = url.searchParams.get('originalPath');
 
-      const queryValues = l.search.substring(1).split('=');
-
-      let targetIndex;
-      queryValues.forEach((word, index) => {
-        if (word === 'originalPath') {
-          targetIndex = index + 1;
-        }
-      });
-      if (targetIndex) {
-        const url = baseUrl + queryValues[targetIndex];
-        window.history.replaceState(null, null, url);
+      if (originalPath) {
+        url.pathname = url.pathname.split('/')[1] + originalPath;
+        url.searchParams.delete('originalPath');
+        window.history.replaceState(null, null, url.href);
       }
     };
 
