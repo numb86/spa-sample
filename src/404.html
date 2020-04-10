@@ -13,10 +13,15 @@
 <body>
   <script>
     const pathList = window.location.pathname.split('/');
-    const url = `${window.location.origin}/${pathList[1]}/`;
+
+    const url = new URL(window.location);
+    url.pathname = `/${pathList[1]}/`;
+
     pathList.splice(0, 2)
     const queryValue = pathList.map(item => `/${item}`).join('');
-    window.location.replace(`${url}?originalPath=${queryValue}`);
+    url.searchParams.append('originalPath', queryValue);
+
+    window.location.replace(url.href);
   </script>
 </body>
 </html>
