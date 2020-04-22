@@ -80,6 +80,7 @@ module.exports = (env, argv) => {
     optimization,
     devServer: {
       contentBase: path.resolve(__dirname, OUTPUT_DIR_NAME),
+      hot: true,
       historyApiFallback: {
         rewrites: [
           {from: /^\//, to: '/index.html'},
