@@ -12,16 +12,27 @@
 </head>
 <body>
   <script>
-    const pathList = window.location.pathname.split('/');
+    const historyApiFallback = () => {
 
-    const url = new URL(window.location);
-    url.pathname = `/${pathList[1]}/`;
+      const url = new URL(window.location);
 
-    pathList.splice(0, 2)
-    const queryValue = pathList.map(item => `/${item}`).join('');
-    url.searchParams.append('originalPath', queryValue);
+      if (url.searchParams.get('notFound') === 'true') {
+        return;
+      }
 
-    window.location.replace(url.href);
+      const pathList = window.location.pathname.split('/');
+
+      url.pathname = `/${pathList[1]}/`;
+
+      pathList.splice(0, 2)
+      const queryValue = pathList.map(item => `/${item}`).join('');
+      url.searchParams.append('originalPath', queryValue);
+
+      window.location.replace(url.href);
+    };
+
+    historyApiFallback();
   </script>
 </body>
+<div>Not Found.</div>
 </html>
