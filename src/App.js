@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {createGlobalStyle} from 'styled-components';
 import {
   BrowserRouter,
@@ -7,10 +7,34 @@ import {
   Link,
 } from 'react-router-dom';
 
-const BASE_URL = process.env.NODE_ENV === 'production' ? '/spa-sample/' : '/';
+const isProductionEnvironment = process.env.NODE_ENV === 'production';
+
+const BASE_URL = isProductionEnvironment ? '/spa-sample/' : '/';
 
 const Home = () => <>This is <b>home</b> page.</>;
 const About = () => <>This is <b>about</b> page.</>;
+
+const NotFound = () => {
+  useEffect(() => {
+    if (isProductionEnvironment) {
+      // When using a URL object or URLSearchParams, core-js gives an error.
+      // So not used.
+      const NOT_FOUND_QUERY = 'notFound=true';
+
+      const {href, search} = window.location;
+
+      if (search === '') {
+        const url = `${href}?notFound=true`
+        window.location.replace(url);
+      } else {
+        const url = `${href}&notFound=true`
+        window.location.replace(url);
+      };
+    }
+  });
+
+  return isProductionEnvironment ? null : <div>Not Found.</div>;
+};
 
 export const App = () => (
   <>
@@ -26,6 +50,9 @@ export const App = () => (
         </Route>
         <Route path={`${BASE_URL}about`}>
           <About />
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
     </BrowserRouter>
