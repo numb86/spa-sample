@@ -17,6 +17,8 @@
       const url = new URL(window.location);
 
       if (url.searchParams.get('notFound') === 'true') {
+        url.searchParams.delete('notFound');
+        window.history.replaceState(null, null, url.href);
         return;
       }
 
