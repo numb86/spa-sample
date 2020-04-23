@@ -17,19 +17,9 @@ const About = () => <>This is <b>about</b> page.</>;
 const NotFound = () => {
   useEffect(() => {
     if (isProductionEnvironment) {
-      // When using a URL object or URLSearchParams, core-js gives an error.
-      // So not used.
-      const NOT_FOUND_QUERY = 'notFound=true';
-
-      const {href, search} = window.location;
-
-      if (search === '') {
-        const url = `${href}?notFound=true`
-        window.location.replace(url);
-      } else {
-        const url = `${href}&notFound=true`
-        window.location.replace(url);
-      };
+      const url = new URL(window.location);
+      url.searchParams.append('notFound', 'true');
+      window.location.replace(url.href);
     }
   });
 
