@@ -19,7 +19,6 @@
     "babel-preset-power-assert": "^3.0.0",
     "clean-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^3.2.0",
-    "license-info-webpack-plugin": "^2.1.1",
     "power-assert": "^1.6.1",
     "react-test-renderer": "^16.13.0",
     "terser-webpack-plugin": "^2.3.5",
