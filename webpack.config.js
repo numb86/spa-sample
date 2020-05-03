@@ -29,13 +29,7 @@ module.exports = (env, argv) => {
     },
   };
   const minimizer = [
-    new TerserPlugin({
-      terserOptions: {
-        output: {
-          comments: /^\**!|@preserve|@license|@cc_on/,
-        },
-      },
-    }),
+    new TerserPlugin(),
   ];
   let optimization = {
     splitChunks,
