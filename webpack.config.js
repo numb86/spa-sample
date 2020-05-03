@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const LicenseInfoWebpackPlugin = require('license-info-webpack-plugin').default;
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
@@ -31,7 +30,6 @@ module.exports = (env, argv) => {
   };
   const minimizer = [
     new TerserPlugin({
-      extractComments: false,
       terserOptions: {
         output: {
           comments: /^\**!|@preserve|@license|@cc_on/,
@@ -44,12 +42,7 @@ module.exports = (env, argv) => {
   };
 
   if (isProduction) {
-    plugins.push(
-      new CleanWebpackPlugin(),
-      new LicenseInfoWebpackPlugin({
-        glob: '{LICENSE,license,License}*',
-      })
-    );
+    plugins.push(new CleanWebpackPlugin());
     optimization = {
       splitChunks,
       minimizer,
