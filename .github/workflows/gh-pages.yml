@@ -28,7 +28,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - run: yarn
+      - run: yarn --frozen-lockfile
       - run: yarn build
       - run: cp ./src/404.html ./public/404.html
       - run: mkdir -p public/images/ && cp -r ./src/images/* public/images/
