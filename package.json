@@ -5,7 +5,7 @@
   "author": "numb86 <16703337+numb86@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "start": "yarn && NODE_ENV=development webpack-dev-server --mode=development",
+    "start": "yarn && NODE_ENV=development webpack serve --mode=development",
     "build": "yarn && NODE_ENV=production webpack --mode=production"
   },
   "devDependencies": {
