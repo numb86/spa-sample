@@ -2259,11 +2259,6 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-es6-promise@^4.2.8:
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.8.tgz#4eb21594c972bc40553d276e510539143db53e0a"
-  integrity sha512-HJDGx5daxeIvxdBxvG2cb9g4tEvwIk3i8+nhX0yGrYmZUzbkdg8QbDevheDB8gd0//uPj4c1EQua8Q+MViT0/w==
-
 escalade@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/escalade/-/escalade-3.1.1.tgz#d8cfdc7000965c5a0174b4a82eaa5c0552742e40"
@@ -2477,13 +2472,6 @@ faye-websocket@~0.11.1:
   integrity sha512-D2y4bovYpzziGgbHYtGCMjlJM36vAl/y+xUyn1C+FVx8szd1E+86KwVw6XvYSzOP8iMpm1X0I4xJD+QtUb36OA==
   dependencies:
     websocket-driver ">=0.5.1"
-
-fetch-ponyfill@^7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/fetch-ponyfill/-/fetch-ponyfill-7.1.0.tgz#4266ed48b4e64663a50ab7f7fcb8e76f990526d0"
-  integrity sha512-FhbbL55dj/qdVO3YNK7ZEkshvj3eQ7EuIGV2I6ic/2YiocvyWv+7jg2s4AyS0wdRU75s3tA8ZxI/xPigb0v5Aw==
-  dependencies:
-    node-fetch "~2.6.1"
 
 file-uri-to-path@1.0.0:
   version "1.0.0"
@@ -3257,14 +3245,12 @@ json5@^2.1.2:
   dependencies:
     minimist "^1.2.5"
 
-ken-all@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/ken-all/-/ken-all-0.2.3.tgz#608484d5fc952c5707beb3a59c6630351396d21d"
-  integrity sha512-PZVs5kiJvIb0n+Ot44GJbM8pT4NYFnOnVqrEWcQi5BAU1iAAmiI8sur4Cay9kiNczhL5mJTJaLASZeR8c1c5FA==
+ken-all@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/ken-all/-/ken-all-0.3.0.tgz#e835848e5bf8cd633341c637579d59dc3dfaab2f"
+  integrity sha512-w1GREa19JGwRJfXyVWRxV55NR98xcOWQgbv3iXhB6YKt6uMoJyTBOW3PjtpOXyUfBVxWxV+1ILDu/Y1r2lzBog==
   dependencies:
     "@types/node" "^14.14.35"
-    es6-promise "^4.2.8"
-    fetch-ponyfill "^7.1.0"
     typescript "^4.2.3"
 
 killable@^1.0.1:
@@ -3568,11 +3554,6 @@ no-case@^3.0.3:
   dependencies:
     lower-case "^2.0.1"
     tslib "^1.10.0"
-
-node-fetch@~2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
-  integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
 
 node-forge@^0.10.0:
   version "0.10.0"
