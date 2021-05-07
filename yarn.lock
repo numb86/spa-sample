@@ -3245,10 +3245,10 @@ json5@^2.1.2:
   dependencies:
     minimist "^1.2.5"
 
-ken-all@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/ken-all/-/ken-all-0.3.0.tgz#e835848e5bf8cd633341c637579d59dc3dfaab2f"
-  integrity sha512-w1GREa19JGwRJfXyVWRxV55NR98xcOWQgbv3iXhB6YKt6uMoJyTBOW3PjtpOXyUfBVxWxV+1ILDu/Y1r2lzBog==
+ken-all@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/ken-all/-/ken-all-0.4.1.tgz#7d9e39aed72dbf7939227e40d6c73639bc9629be"
+  integrity sha512-FWSRzkmODmWOaobUothdF06k5yBA3NjKWThmtsagWhnL/lNqn2ZYq60Wqx+DDKvaB2lR8JajmU4gitgdq4H4eg==
   dependencies:
     "@types/node" "^14.14.35"
     typescript "^4.2.3"
