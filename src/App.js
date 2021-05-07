@@ -1,24 +1,27 @@
-import {useEffect} from 'react';
-import {createGlobalStyle} from 'styled-components';
-import {
-  BrowserRouter,
-  Switch,
-  Route,
-  Link,
-} from 'react-router-dom';
+import { useEffect } from "react";
+import { createGlobalStyle } from "styled-components";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
-const isProductionEnvironment = process.env.NODE_ENV === 'production';
+const isProductionEnvironment = process.env.NODE_ENV === "production";
 
-const BASE_URL = isProductionEnvironment ? '/spa-sample/' : '/';
+const BASE_URL = isProductionEnvironment ? "/spa-sample/" : "/";
 
-const Home = () => <>This is <b>home</b> page.</>;
-const About = () => <>This is <b>about</b> page.</>;
+const Home = () => (
+  <>
+    This is <b>home</b> page.
+  </>
+);
+const About = () => (
+  <>
+    This is <b>about</b> page.
+  </>
+);
 
 const NotFound = () => {
   useEffect(() => {
     if (isProductionEnvironment) {
       const url = new URL(window.location);
-      url.searchParams.append('notFound', 'true');
+      url.searchParams.append("notFound", "true");
       window.location.replace(url.href);
     }
   });
@@ -32,7 +35,8 @@ export const App = () => (
     <BrowserRouter>
       <h1>Hello SPA!</h1>
       <nav>
-        <Link to={BASE_URL}>to home</Link> <Link to={`${BASE_URL}about`}>to about</Link>
+        <Link to={BASE_URL}>to home</Link>{" "}
+        <Link to={`${BASE_URL}about`}>to about</Link>
       </nav>
       <Switch>
         <Route exact path={BASE_URL}>
